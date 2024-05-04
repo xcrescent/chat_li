@@ -203,7 +203,10 @@ class _HomePageState extends State<HomePage> {
           color: Color(0xff9B98A4),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+            vertical: 4.0,
+          ),
           child: Row(
             children: [
               SvgPicture.asset(
@@ -212,7 +215,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 margin: const EdgeInsets.symmetric(
-                  horizontal: 8.0,
+                  horizontal: 4.0,
                   vertical: 16,
                 ),
                 width: MediaQuery.of(context).size.width * 0.7,
@@ -263,7 +266,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   : IconButton(
-                      icon: const Icon(Icons.send),
+                      icon: const Icon(
+                        Icons.send,
+                        color: Color(0xff5755D9),
+                      ),
                       onPressed: () {
                         if (_controller.text.isNotEmpty) {
                           _addMessage(
