@@ -89,6 +89,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void initState() {
+    _controller.addListener(() {
+      setState(() {
+        _controller.text;
+      });
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -212,19 +222,23 @@ class _HomePageState extends State<HomePage> {
                 height: 38,
                 child: TextField(
                   controller: _controller,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Type Message...',
-                    hintStyle: TextStyle(
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 0.0,
+                      horizontal: 8.0,
+                    ),
+                    hintStyle: const TextStyle(
                       color: Color(0xff9B98A4),
                       fontWeight: FontWeight.w400,
                       fontSize: 13.0,
                       fontFamily: 'Inter',
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.zero,
+                      borderRadius: BorderRadius.circular(4.0),
                       borderSide: BorderSide(
-                        color: Color(0xff9B98A4),
-                        width: 1.0,
+                        color: const Color(0xff9B98A4).withOpacity(0.3),
+                        width: 0.3,
                       ),
                     ),
                   ),
